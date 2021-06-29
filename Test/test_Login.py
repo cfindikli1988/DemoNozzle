@@ -6,9 +6,9 @@ from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture()
 def test_setup():
-    options = Options()
-    options.headless = True
      global driver
+     options = Options()
+     options.headless = True
      driver = webdriver.Chrome("../drivers/chromedriver")
      driver.maximize_window()
      yield
