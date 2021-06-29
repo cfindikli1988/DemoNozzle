@@ -2,14 +2,19 @@ from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 
 @pytest.fixture()
 def test_setup():
      global driver
-     options = Options()
+     options = webdriver.ChromeOptions()
      options.headless = True
-     driver = webdriver.Chrome("../drivers/chromedriver")
+     options.add_argument("no-sandbox")
+     options.add_argument("--disable-gpu")
+     options.add_argument("--disable-dev-shm-usage")
+     driver = webdriver.Chrome("../drivers/chromedriver",chrome_options=options)
      driver.maximize_window()
      yield
      driver.close()
