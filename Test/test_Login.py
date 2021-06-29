@@ -5,7 +5,7 @@ import pytest
 @pytest.fixture()
 def test_setup():
      global driver
-     driver = webdriver.Chrome("/Users/caglarfindikli/PycharmProjects/DemoNozzle/drivers/chromedriver")
+     driver = webdriver.Chrome(executable_path="/Users/caglarfindikli/PycharmProjects/DemoNozzle/drivers/chromedriver")
      driver.maximize_window()
      yield
      driver.close()
