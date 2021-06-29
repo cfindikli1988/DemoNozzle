@@ -1,6 +1,6 @@
 from selenium import webdriver
 import pytest
-import allure
+
 
 @pytest.fixture()
 def test_setup():
