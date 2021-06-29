@@ -1,9 +1,13 @@
 from selenium import webdriver
 import pytest
+from selenium.webdriver.chrome.options import Options
+
 
 
 @pytest.fixture()
 def test_setup():
+    options = Options()
+    options.headless = True
      global driver
      driver = webdriver.Chrome("../drivers/chromedriver")
      driver.maximize_window()
