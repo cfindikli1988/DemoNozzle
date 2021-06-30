@@ -1,5 +1,6 @@
 from selenium import webdriver
 import pytest
+import allure
 from selenium.webdriver.chrome.options import Options
 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -14,11 +15,13 @@ def test_setup():
      options.add_argument("no-sandbox")
      options.add_argument("--disable-gpu")
      options.add_argument("--disable-dev-shm-usage")
-     driver = webdriver.Chrome("../drivers/chromedriver",chrome_options=options)
+     driver = webdriver.Chrome("../drivers/chromedriver",options=options)
      driver.maximize_window()
      yield
      driver.close()
 
+@allure.description("Validate login with correct credentials")
+@allure.severity(allure.severity_level.NORMAL)
 def test_login(test_setup):
     driver.get("https://demo.nozzlesoft.com/")
     driver.find_element_by_id("Email").send_keys("jfindikli@gmail.com")
