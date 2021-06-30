@@ -1,9 +1,6 @@
 from selenium import webdriver
 import pytest
 import allure
-from selenium.webdriver.chrome.options import Options
-
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 
@@ -20,7 +17,7 @@ def test_setup():
      yield
      driver.close()
 
-@allure.description("Validate login with correct credentials")
+
 @allure.severity(allure.severity_level.NORMAL)
 def test_login(test_setup):
     driver.get("https://demo.nozzlesoft.com/")
